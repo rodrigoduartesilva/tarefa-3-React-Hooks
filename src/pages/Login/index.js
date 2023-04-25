@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from "../../components/Button"
 import InputSpace from "../../components/InputSpace";
 import InputPass from "../../components/InputPass";
@@ -6,9 +6,9 @@ import { useNavigate } from "react-router-dom";
 
 const Login = () => {
     const navigate = useNavigate();
-
     const handleSubmit = (event) => {
         event.preventDefault();
+        alert('Logado!');
         navigate('/sucessoLogin');
     }
 
