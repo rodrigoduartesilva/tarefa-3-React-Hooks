@@ -1,14 +1,15 @@
-import React from "react";
-import DogShowerServiceItem from "../DogShowerServiceItem";
-import DogGroomingServiceItem from "../DogGroomingServiceItem";
-import DogVetServiceItem from "../DogVetServiceItem";
+import React, { useState } from "react";
+import DogShowerServiceItem from "../DogServiceItem";
+import dogServicesMock from "../../mock/dogServicesMock";
 
 const DogMenu = () => {
+    const [services, setServices] = useState(dogServicesMock);
+
     return (
         <>
-            <DogShowerServiceItem />
-            <DogGroomingServiceItem />
-            <DogVetServiceItem />
+            {services.map(service => (
+                <DogShowerServiceItem key={service._id} service={service} />
+            ))}
         </>
     );
 }

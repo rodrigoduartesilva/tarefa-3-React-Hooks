@@ -1,14 +1,15 @@
-import React from "react";
-import CatShowerServiceItem from "../CatShowerServiceItem";
-import CatGroomingServiceItem from "../CatGroomingServiceItem";
-import CatVetServiceItem from "../CatVetServiceItem";
+import React, { useState } from "react";
+import CatServiceItem from "../CatServiceItem";
+import catServicesMock from "../../mock/catServicesMock";
 
 const CatMenu = () => {
+    const [services, setServices] = useState(catServicesMock);
+
     return (
         <>
-            <CatShowerServiceItem />
-            <CatGroomingServiceItem />
-            <CatVetServiceItem />
+            {services.map(service => (
+                <CatServiceItem key={service._id} service={service} />
+            ))}
         </>
     );
 }
