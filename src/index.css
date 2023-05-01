@@ -27,6 +27,10 @@ body {
     border: 1px solid #F2974B;
 }
 
+.text-color-login {
+    color: #58B5A9;
+}
+
 .home-banner {
     background-image: url('./assets/background.jpg');
     height: 320px;

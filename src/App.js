@@ -14,31 +14,34 @@ import DogVetServiceItemInformation from './components/DogVetServiceItemInformat
 import Cadastro from './pages/Cadastro';
 import NotFound from './pages/NotFound';
 import CadSuccess from './components/CadSuccess';
+import { AuthProvider } from './context/AuthContext';
 
 function App() {
   return (
     <>
-      <NavBar />
-      <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/login' element={<Login />} />
-        <Route path='/cadastro' element={<Cadastro />} />
-        <Route path='/contato' element={<Contato />} />
-        <Route path='/servicelist' element={<ServiceList />} />
+      <AuthProvider>
+        <NavBar />
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/login' element={<Login />} />
+          <Route path='/cadastro' element={<Cadastro />} />
+          <Route path='/contato' element={<Contato />} />
+          <Route path='/servicelist' element={<ServiceList />} />
 
-        <Route path='/gatomenu/:id' element={<CatShowerServiceItemInformation />} />
-        <Route path='/gatomenu_/:id' element={<CatVetServiceItemInformation />} />
-        <Route path='/gatomenu_i/:id' element={<CatGroomingServiceItemInformation />} />
+          <Route path='/gatomenu/:id' element={<CatShowerServiceItemInformation />} />
+          <Route path='/gatomenu_/:id' element={<CatVetServiceItemInformation />} />
+          <Route path='/gatomenu_i/:id' element={<CatGroomingServiceItemInformation />} />
 
-        <Route path='/dogmenu/:id' element={<DogShowerServiceItemInformation />} />
-        <Route path='/dogmenu_/:id' element={<DogGroomingServiceItemInformation />} />
-        <Route path='/dogmenu_i/:id' element={<DogVetServiceItemInformation />} />
+          <Route path='/dogmenu/:id' element={<DogShowerServiceItemInformation />} />
+          <Route path='/dogmenu_/:id' element={<DogGroomingServiceItemInformation />} />
+          <Route path='/dogmenu_i/:id' element={<DogVetServiceItemInformation />} />
 
-        <Route path='/sucessoCad' element={<CadSuccess>Cadastro realizado com sucesso!</CadSuccess>} />
-        <Route path='/sucessoContact' element={<CadSuccess>Mensagem enviada com sucesso. Em breve entraremos em contato com você!</CadSuccess>} />
-        <Route path='/sucessoLogin' element={<CadSuccess>Login realizado com sucesso! Seja bem-vindo!</CadSuccess>} />
-        <Route path='/*' element={<NotFound />} />
-      </Routes>
+          <Route path='/sucessoCad' element={<CadSuccess>Cadastro realizado com sucesso!</CadSuccess>} />
+          <Route path='/sucessoContact' element={<CadSuccess>Mensagem enviada com sucesso. Em breve entraremos em contato com você!</CadSuccess>} />
+          <Route path='/sucessoLogin' element={<CadSuccess>Login realizado com sucesso! Seja bem-vindo!</CadSuccess>} />
+          <Route path='/*' element={<NotFound />} />
+        </Routes>
+      </AuthProvider>
     </>
   );
 }
