@@ -15,6 +15,7 @@ import Cadastro from './pages/Cadastro';
 import NotFound from './pages/NotFound';
 import CadSuccess from './components/CadSuccess';
 import { AuthProvider } from './context/AuthContext';
+import ProtectedRoute from './routes/ProtectedRoute';
 
 function App() {
   return (
@@ -26,7 +27,11 @@ function App() {
           <Route path='/login' element={<Login />} />
           <Route path='/cadastro' element={<Cadastro />} />
           <Route path='/contato' element={<Contato />} />
-          <Route path='/servicelist' element={<ServiceList />} />
+          <Route path='/servicelist' element={
+            <ProtectedRoute>
+              <ServiceList />
+            </ProtectedRoute>
+          } />
 
           <Route path='/gatomenu/:id' element={<CatShowerServiceItemInformation />} />
           <Route path='/gatomenu_/:id' element={<CatVetServiceItemInformation />} />

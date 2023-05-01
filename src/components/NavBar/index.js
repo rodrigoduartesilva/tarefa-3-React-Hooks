@@ -7,7 +7,7 @@ import { MdPets } from 'react-icons/md';
 import { HiOutlineLogout } from 'react-icons/hi';
 
 const NavBar = () => {
-    const { userLogged } = useContext(AuthContext);
+    const { userLogged, logOutUser } = useContext(AuthContext);
 
     return (
         <header className="bg-transparent z-50 w-full">
@@ -24,7 +24,7 @@ const NavBar = () => {
                         </div>
                         <img src="" alt="" />
                         <p className="text-gray-700">Bem-vindo, nome</p>
-                        <HiOutlineLogout className="w-6 h-6 cursor-pointer transition duration-300 hover:scale-110 text-red-800" />
+                        <HiOutlineLogout onClick={logOutUser} className="w-6 h-6 cursor-pointer transition duration-300 hover:scale-110 text-red-800" />
                     </div>
                 ) : (
                     <div className="flex items-center justify-end space-x-6">
