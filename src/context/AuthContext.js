@@ -27,7 +27,6 @@ const AuthProvider = ({ children }) => {
             body: JSON.stringify(inputValues)
         });
         const data = await response.json();
-        console.log(data);
         localStorage.setItem('userInfo', JSON.stringify(data));
         navigate('/sucessoLogin');
         setUserLogged(true);
